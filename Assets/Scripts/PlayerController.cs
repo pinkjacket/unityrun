@@ -40,5 +40,13 @@ public class PlayerController : MonoBehaviour
         {
             this.transform.Rotate(Vector3.up * -90);
         }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            this.transform.Translate(-0.5f, 0, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            this.transform.Translate(0.5f, 0, 0);
+        }
     }
 }
