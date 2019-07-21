@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GenerateWorld : MonoBehaviour
 {
-    public GameObject platform;
+    public GameObject[] platforms;
     void Start()
     {
         Vector3 pos = new Vector3(0, 0, 0);
         for (int i = 0; i < 20; i++)
         {
-            Instantiate(platform, pos, Quaternion.identity);
+            int platformNumber = Random.Range(0, platforms.Length);
+            Instantiate(platforms[platformNumber], pos, Quaternion.identity);
             pos.z += 10;
         }
     }
