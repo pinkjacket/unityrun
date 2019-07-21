@@ -12,7 +12,17 @@ public class GenerateWorld : MonoBehaviour
         {
             int platformNumber = Random.Range(0, platforms.Length);
             Instantiate(platforms[platformNumber], pos, Quaternion.identity);
-            pos.z += 10;
+            pos.z -= 10;
+
+            if(platforms[platformNumber].tag == "stairsUp")
+            {
+                pos.y += 5;
+            }
+
+            else if (platforms[platformNumber].tag == "stairsDown")
+            {
+                pos.y -= 5;
+            }
         }
     }
 
