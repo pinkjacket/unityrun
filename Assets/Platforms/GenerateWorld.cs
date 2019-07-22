@@ -5,26 +5,39 @@ using UnityEngine;
 public class GenerateWorld : MonoBehaviour
 {
     public GameObject[] platforms;
+    GameObject dummyMapper;
     void Start()
     {
-        Vector3 pos = new Vector3(0, 0, 0);
-        for (int i = 0; i < 20; i++)
+        dummyMapper = new GameObject("dummy");
+        //Vector3 pos = new Vector3(0, 0, 0);
+        for (int i = 0; i < 30; i++)
         {
             int platformNumber = Random.Range(0, platforms.Length);
-            GameObject p = Instantiate(platforms[platformNumber], pos, Quaternion.identity);
+            GameObject p = Instantiate(platforms[platformNumber],
+                                        dummyMapper.transform.position,
+                                        dummyMapper.transform.rotation);
 
             if(platforms[platformNumber].tag == "stairsUp")
             {
-                pos.y += 5;
+                dummyMapper.transform.Translate(0, 5, 0);
             }
 
             else if (platforms[platformNumber].tag == "stairsDown")
             {
-                pos.y -= 5;
+                dummyMapper.transform.Translate(0, -5, 0);
                 p.transform.Rotate(new Vector3(0, 180, 0));
-                p.transform.position = pos;
+                p.transform.position = dummyMapper.transform.position;
             }
-            pos.z -= 10;
+            else if (platforms[platformNumber].tag == "platformTSection")
+            {
+                if (Random.Range(0, 2) == 0)
+                    dummyMapper.transform.Rotate(new Vector3(0, 90, 0));
+                else
+                    dummyMapper.transform.Rotate(new Vector3(0, -90, 0));
+
+                dummyMapper.transform.Translate(Vector3.forward * -10);
+            }
+            dummyMapper.transform.Translate(Vector3.forward * -10);
         }
     }
 
