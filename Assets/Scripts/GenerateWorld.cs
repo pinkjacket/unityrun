@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GenerateWorld : MonoBehaviour
 {
-    public GameObject[] platforms;
     GameObject dummyMapper;
     void Start()
     {
@@ -12,23 +11,24 @@ public class GenerateWorld : MonoBehaviour
         //Vector3 pos = new Vector3(0, 0, 0);
         for (int i = 0; i < 30; i++)
         {
-            int platformNumber = Random.Range(0, platforms.Length);
-            GameObject p = Instantiate(platforms[platformNumber],
-                                        dummyMapper.transform.position,
-                                        dummyMapper.transform.rotation);
+            GameObject p = Pool.singleton.GetRandom();
+            if (p == null) return;
+            p.SetActive(true);
+            p.transform.position = dummyMapper.transform.position;
+            p.transform.rotation = dummyMapper.transform.rotation;
 
-            if(platforms[platformNumber].tag == "stairsUp")
+            if(p.tag == "stairsUp")
             {
                 dummyMapper.transform.Translate(0, 5, 0);
             }
 
-            else if (platforms[platformNumber].tag == "stairsDown")
+            else if (p.tag == "stairsDown")
             {
                 dummyMapper.transform.Translate(0, -5, 0);
                 p.transform.Rotate(new Vector3(0, 180, 0));
                 p.transform.position = dummyMapper.transform.position;
             }
-            else if (platforms[platformNumber].tag == "platformTSection")
+            else if (p.tag == "platformTSection")
             {
                 if (Random.Range(0, 2) == 0)
                     dummyMapper.transform.Rotate(new Vector3(0, 90, 0));
