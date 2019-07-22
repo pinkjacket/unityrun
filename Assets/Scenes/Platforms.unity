@@ -150,9 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platforms:
-  - {fileID: 100018, guid: 9720b9ee7ea14446690c794965f2107e, type: 3}
-  - {fileID: 100022, guid: 84f9bc7fd110d43cbbcd517cbe9bd72e, type: 3}
-  - {fileID: 100020, guid: 8ce3a3c3a5f32446796a4a9392dec0e0, type: 3}
+  - {fileID: 6474141224531644346, guid: 79a953d33e991014caa452273bec7300, type: 3}
+  - {fileID: 8549445960113420693, guid: daed6c4e5391f2c47bb0086cdac0acf5, type: 3}
+  - {fileID: 1275730262004680649, guid: 1c8399809c77eb548b841609ddd00da4, type: 3}
+  - {fileID: 3816303861156673173, guid: 019e2421ed440004db26babb7cdbc55b, type: 3}
+  - {fileID: 4680280826477177203, guid: 6321c1f8a46855348a8751f542f491ef, type: 3}
 --- !u!4 &365011348
 Transform:
   m_ObjectHideFlags: 0

@@ -11,8 +11,7 @@ public class GenerateWorld : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             int platformNumber = Random.Range(0, platforms.Length);
-            Instantiate(platforms[platformNumber], pos, Quaternion.identity);
-            pos.z -= 10;
+            GameObject p = Instantiate(platforms[platformNumber], pos, Quaternion.identity);
 
             if(platforms[platformNumber].tag == "stairsUp")
             {
@@ -22,7 +21,10 @@ public class GenerateWorld : MonoBehaviour
             else if (platforms[platformNumber].tag == "stairsDown")
             {
                 pos.y -= 5;
+                p.transform.Rotate(new Vector3(0, 180, 0));
+                p.transform.position = pos;
             }
+            pos.z -= 10;
         }
     }
 
