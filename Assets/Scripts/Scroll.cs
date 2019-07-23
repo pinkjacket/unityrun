@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Scroll : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void FixedUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //the -0.1f is the game's scrolling speed, so it can be changed here
+        this.transform.position += PlayerController.player.transform.forward * -0.1f;
     }
 }

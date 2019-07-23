@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - prefab: {fileID: 2862341200131311157, guid: 977399eae6383db4cb7878841b89e1bc,
+  - prefab: {fileID: 1275730262004680649, guid: 1c8399809c77eb548b841609ddd00da4,
       type: 3}
     amount: 2
     expandable: 0
@@ -250,18 +250,6 @@ MonoBehaviour:
     amount: 2
     expandable: 0
   - prefab: {fileID: 8549445960113420693, guid: daed6c4e5391f2c47bb0086cdac0acf5,
-      type: 3}
-    amount: 2
-    expandable: 0
-  - prefab: {fileID: 1275730262004680649, guid: 1c8399809c77eb548b841609ddd00da4,
-      type: 3}
-    amount: 2
-    expandable: 0
-  - prefab: {fileID: 4680280826477177203, guid: 6321c1f8a46855348a8751f542f491ef,
-      type: 3}
-    amount: 2
-    expandable: 0
-  - prefab: {fileID: 3816303861156673173, guid: 019e2421ed440004db26babb7cdbc55b,
       type: 3}
     amount: 2
     expandable: 0
