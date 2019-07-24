@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 6474141224524233832}
   - component: {fileID: 5992027129543032589}
   - component: {fileID: 69666488}
+  - component: {fileID: 1028193534485034977}
   m_Layer: 0
   m_Name: platformZ
   m_TagString: platformZ
@@ -541,6 +542,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 9720b9ee7ea14446690c794965f2107e, type: 3}
+--- !u!65 &1028193534485034977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474141224531644346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.95, z: -4.5}
 --- !u!1 &6474141224531644348
 GameObject:
   m_ObjectHideFlags: 0

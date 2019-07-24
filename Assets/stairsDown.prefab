@@ -1799,6 +1799,7 @@ GameObject:
   - component: {fileID: 4680280826484562675}
   - component: {fileID: 6924269568527121946}
   - component: {fileID: -3764672536180580759}
+  - component: {fileID: -832966158322709305}
   m_Layer: 0
   m_Name: stairsDown
   m_TagString: stairsDown
@@ -1869,6 +1870,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d452a64fa86b6844869e80c83c2c079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-832966158322709305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680280826477177203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 1, z: 4.5}
 --- !u!1 &4680280826477177205
 GameObject:
   m_ObjectHideFlags: 0
