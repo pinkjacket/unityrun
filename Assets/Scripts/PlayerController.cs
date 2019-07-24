@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     {
         anim = this.GetComponent<Animator>();
         player = this.gameObject;
+        GenerateWorld.RunDummy();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        GenerateWorld.RunDummy();
     }
 
     void StopJump()
