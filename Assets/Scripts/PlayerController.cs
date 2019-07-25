@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        currentPlatform = other.gameObject;
+        if (other.gameObject.tag == "fire")
+            anim.SetTrigger("isDead");
+        else
+            currentPlatform = other.gameObject;
     }
 
     // Start is called before the first frame update
