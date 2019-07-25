@@ -8,7 +8,7 @@ public class Scroll : MonoBehaviour
     {
         if (PlayerController.isDead) return;
         //the -0.1f is the game's scrolling speed, so it can be changed here
-        this.transform.position += PlayerController.player.transform.forward * -0.11f;
+        this.transform.position += PlayerController.player.transform.forward * -0.1f;
 
         if (PlayerController.currentPlatform == null) return;
         //the .06f is related to the angle of the stair model
