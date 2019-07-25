@@ -10,7 +10,7 @@ public class Deactivate : MonoBehaviour
         if (player.gameObject.tag == "Player" && !dScheduled)
         {
             //platform disappears after 3 seconds
-            Invoke("SetInactive", 3.0f);
+            Invoke("SetInactive", 4.0f);
             dScheduled = true;
         }
     }

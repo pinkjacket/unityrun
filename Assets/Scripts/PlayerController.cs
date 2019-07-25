@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     public static GameObject player;
     public static GameObject currentPlatform;
+    bool canTurn = false;
+    Vector3 startPosition;
 
     void OnCollisionEnter(Collision other)
     {
@@ -18,12 +20,25 @@ public class PlayerController : MonoBehaviour
     {
         anim = this.GetComponent<Animator>();
         player = this.gameObject;
+        startPosition = player.transform.position;
+
         GenerateWorld.RunDummy();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        GenerateWorld.RunDummy();
+        if(other is BoxCollider && GenerateWorld.lastPlatform.tag != "platformTSection")
+            GenerateWorld.RunDummy();
+
+        //no sphere colliders besides the one on the T platforms, that's how it's differentiated
+        if (other is SphereCollider)
+            canTurn = true;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other is SphereCollider)
+            canTurn = false;
     }
 
     void StopJump()
@@ -46,13 +61,31 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isMagic", true);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && canTurn)
         {
             this.transform.Rotate(Vector3.up * 90);
+            GenerateWorld.dummyMapper.transform.forward = -this.transform.forward;
+            GenerateWorld.RunDummy();
+
+            if(GenerateWorld.lastPlatform.tag != "platformTSection")
+                GenerateWorld.RunDummy();
+
+            this.transform.position = new Vector3(startPosition.x,
+                                                this.transform.position.y,
+                                                startPosition.z);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && canTurn)
         {
             this.transform.Rotate(Vector3.up * -90);
+            GenerateWorld.dummyMapper.transform.forward = -this.transform.forward;
+            GenerateWorld.RunDummy();
+
+            if (GenerateWorld.lastPlatform.tag != "platformTSection")
+                GenerateWorld.RunDummy();
+
+            this.transform.position = new Vector3(startPosition.x,
+                                                this.transform.position.y,
+                                                startPosition.z);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {

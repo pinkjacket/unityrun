@@ -19,8 +19,12 @@ public class GenerateWorld : MonoBehaviour
 
         if (lastPlatform != null)
         {
-            dummyMapper.transform.position = lastPlatform.transform.position +
-                PlayerController.player.transform.forward * 10;
+            if (lastPlatform.tag == "platformTSection")
+                dummyMapper.transform.position = lastPlatform.transform.position +
+                PlayerController.player.transform.forward * 20;
+            else
+                dummyMapper.transform.position = lastPlatform.transform.position +
+                    PlayerController.player.transform.forward * 10;
 
             if (lastPlatform.tag == "stairsUp")
                 dummyMapper.transform.Translate(0, 5, 0);
