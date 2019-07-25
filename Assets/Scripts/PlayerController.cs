@@ -9,11 +9,16 @@ public class PlayerController : MonoBehaviour
     public static GameObject currentPlatform;
     bool canTurn = false;
     Vector3 startPosition;
+    public static bool isDead;
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "fire")
+        {
             anim.SetTrigger("isDead");
+            isDead = true;
+        }
+            
         else
             currentPlatform = other.gameObject;
     }

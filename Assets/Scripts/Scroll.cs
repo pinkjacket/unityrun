@@ -6,6 +6,7 @@ public class Scroll : MonoBehaviour
 {
     void FixedUpdate()
     {
+        if (PlayerController.isDead) return;
         //the -0.1f is the game's scrolling speed, so it can be changed here
         this.transform.position += PlayerController.player.transform.forward * -0.11f;
 
