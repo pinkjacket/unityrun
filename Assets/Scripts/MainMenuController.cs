@@ -9,5 +9,18 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("ScrollingWorld", LoadSceneMode.Single);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            QuitGame();
+        }
+    }
     
 }
