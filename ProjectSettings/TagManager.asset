@@ -13,6 +13,8 @@ TagManager:
   - fire
   - wall
   - spell
+  - mmbutton
+  - subpanel
   layers:
   - Default
   - TransparentFX
