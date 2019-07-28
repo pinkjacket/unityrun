@@ -5,6 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject helpPanel;
+
+    void Start()
+    {
+        helpPanel.SetActive(false);
+    }
+
+    public void CloseHelpPanel()
+    {
+        helpPanel.SetActive(false);
+    }
+
+    public void OpenHelpPanel()
+    {
+        helpPanel.SetActive(true);
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene("ScrollingWorld", LoadSceneMode.Single);
