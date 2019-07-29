@@ -687,6 +687,45 @@ MonoBehaviour:
       type: 3}
     amount: 2
     expandable: 0
+  - prefab: {fileID: 6781079741712468649, guid: 14065d98a8a7e1141909046ec9bed158,
+      type: 3}
+    amount: 1
+    expandable: 0
+  - prefab: {fileID: 3025937778225869133, guid: 5e110c98044c3934a919c442456bcbe1,
+      type: 3}
+    amount: 2
+    expandable: 0
+  - prefab: {fileID: 5088116925273286577, guid: 064363a04af1dd247b264ab960104bc3,
+      type: 3}
+    amount: 1
+    expandable: 0
+  - prefab: {fileID: 5536675669680659160, guid: 26a02b186c179d1498ad3b5673fe2dbd,
+      type: 3}
+    amount: 2
+    expandable: 0
+  - prefab: {fileID: 7886551558023467637, guid: 7ac9bee6c84c190468271964c9dd01fe,
+      type: 3}
+    amount: 2
+    expandable: 0
+  - prefab: {fileID: 8831152038503847917, guid: 3c91ddfd2471bc44bb062a2848c905ba,
+      type: 3}
+    amount: 2
+    expandable: 0
+  - prefab: {fileID: 7895781980458524462, guid: 10e97ea5323d35048985b7d1600ad711,
+      type: 3}
+    amount: 1
+    expandable: 0
+  - prefab: {fileID: 638050504886925773, guid: 19c23e04c3d4cbc43b98b1c056a07acb, type: 3}
+    amount: 1
+    expandable: 0
+  - prefab: {fileID: 2510831589307132480, guid: b785ca824d548764bbe9805669e65b94,
+      type: 3}
+    amount: 1
+    expandable: 0
+  - prefab: {fileID: 8891646417136998548, guid: 42fa40e6510b4914187e1d658c2a868c,
+      type: 3}
+    amount: 1
+    expandable: 0
   pooledItems: []
 --- !u!4 &1308096842
 Transform:
