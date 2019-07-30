@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public RawImage[] icons;
 
     public GameObject gameOverPanel;
+    public Text highScore;
 
     void RestartGame()
     {
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "fire" || other.gameObject.tag == "wall")
+        if ((other.gameObject.tag == "fire" || other.gameObject.tag == "wall") && !isDead)
         {
             anim.SetTrigger("isDead");
             isDead = true;
@@ -45,6 +46,16 @@ public class PlayerController : MonoBehaviour
             {
                 icons[0].texture = deadIcon;
                 gameOverPanel.SetActive(true);
+
+                PlayerPrefs.SetInt("lastscore", PlayerPrefs.GetInt("score"));
+                if(PlayerPrefs.HasKey("highscore"))
+                {
+                    int hs = PlayerPrefs.GetInt("highscore");
+                    if (hs < PlayerPrefs.GetInt("score"))
+                        PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("score"));
+                }
+                else
+                    PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("score"));
             }
                 
         }
@@ -64,6 +75,12 @@ public class PlayerController : MonoBehaviour
         startPosition = player.transform.position;
 
         GenerateWorld.RunDummy();
+
+        if (PlayerPrefs.HasKey("highscore"))
+            highScore.text = "High Score: " + PlayerPrefs.GetInt("highscore");
+        else
+            highScore.text = "High Score: 0";
+
         isDead = false;
         livesLeft = PlayerPrefs.GetInt("lives");
 
