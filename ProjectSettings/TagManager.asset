@@ -15,6 +15,7 @@ TagManager:
   - spell
   - mmbutton
   - subpanel
+  - gamedata
   layers:
   - Default
   - TransparentFX
