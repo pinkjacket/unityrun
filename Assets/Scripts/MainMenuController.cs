@@ -8,6 +8,7 @@ public class MainMenuController : MonoBehaviour
 {
     GameObject[] panels;
     GameObject[] mmButtons;
+    int maxLives = 3;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class MainMenuController : MonoBehaviour
 
     public void LoadGameScene()
     {
+        PlayerPrefs.SetInt("lives", maxLives);
         SceneManager.LoadScene("ScrollingWorld", LoadSceneMode.Single);
     }
 
