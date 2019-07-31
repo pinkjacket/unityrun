@@ -7,6 +7,8 @@ public class GameData : MonoBehaviour
 {
     public static GameData singleton;
     public Text scoreText = null;
+    public GameObject musicSlider;
+    public GameObject soundSlider;
     public int score = 0;
 
     void Awake()
@@ -20,7 +22,8 @@ public class GameData : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         singleton = this;
 
-        PlayerPrefs.SetInt("score", 0);
+        musicSlider.GetComponent<UpdateMusic>().Start();
+        soundSlider.GetComponent<UpdateSound>().Start();
     }
 
     public void UpdateScore(int s)
