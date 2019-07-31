@@ -108,6 +108,23 @@ public class PlayerController : MonoBehaviour
         magic.SetActive(false);
     }
 
+    void PlayMagic()
+    {
+        sfx[7].Play();
+    }
+
+
+    //I decided not to use these because I don't care for constant footstep noises, they'd go on frames 4 and 12 of the running animation
+    void Footstep1()
+    {
+        sfx[3].Play();
+    }
+
+    void Footstep2()
+    {
+        sfx[4].Play();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other is BoxCollider && GenerateWorld.lastPlatform.tag != "platformTSection")
