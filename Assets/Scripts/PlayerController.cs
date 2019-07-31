@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public GameObject gameOverPanel;
     public Text highScore;
 
+    bool falling = false;
+
     void RestartGame()
     {
         SceneManager.LoadScene("ScrollingWorld", LoadSceneMode.Single);
@@ -35,9 +37,12 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if ((other.gameObject.tag == "fire" || other.gameObject.tag == "wall") && !isDead)
+        if ((falling || other.gameObject.tag == "fire" || other.gameObject.tag == "wall") && !isDead)
         {
-            anim.SetTrigger("isDead");
+            if (falling)
+                anim.SetTrigger("isFalling");
+            else
+                anim.SetTrigger("isDead");
             isDead = true;
             sfx[6].Play();
             livesLeft--;
@@ -156,7 +161,16 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerController.isDead) return;
 
-        if(Input.GetKeyDown(KeyCode.Space) && anim.GetBool("isMagic") == false)
+        if (currentPlatform != null)
+        {
+            if (this.transform.position.y < (currentPlatform.transform.position.y -5))
+            {
+                falling = true;
+                OnCollisionEnter(null);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && anim.GetBool("isMagic") == false && anim.GetBool("isJumping") == false)
         {
             anim.SetBool("isJumping", true);
             rb.AddForce(Vector3.up * 200);
